@@ -2,6 +2,7 @@
 
 ;; This file is not part of Emacs
 
+;; Copyright (C) 2001 by Joseph L. Casadonte Jr.
 ;; Copyright (C) 2023 by Mark A. Hershberger
 ;; Author:          Joe Casadonte <emacs@northbound-train.com>
 ;; Maintainer:      Mark A. Hershberger <mah@everybody.org>
