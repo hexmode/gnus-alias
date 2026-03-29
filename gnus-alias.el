@@ -1135,11 +1135,15 @@ above circumstances rather then generate an error."
       (gnus-alias-remove-sig)
 
       ;; add signature maybe
-      (when sig
-        (goto-char (point-max))
-        (unless (bolp) (insert "\n"))
-        (insert "-- \n")
-        (insert (gnus-alias-get-value sig))))
+      (let ((reference-sig (and reference
+                                (gnus-alias-get-sig
+                                 (assoc-string (gnus-alias-get-value reference)
+                                               gnus-alias-identity-alist t)))))
+        (when (or sig reference-sig)
+          (goto-char (point-max))
+          (unless (bolp) (insert "\n"))
+          (insert "-- \n")
+          (insert (gnus-alias-get-value (or sig reference-sig))))))
 
       ;; remember last Identity used
       (setq gnus-alias-current-identity identity)))
